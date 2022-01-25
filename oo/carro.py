@@ -1,5 +1,5 @@
 class Direcao():
-    direcoes=["Norte","Leste","Sul","Oeste"] # só como exemplo
+    DIRECOES=["Norte","Leste","Sul","Oeste"] # só como exemplo
     def __init__(self):
         self.direcoes = ["Norte","Leste","Sul","Oeste"]
         self.v = 0
@@ -57,7 +57,7 @@ class Carro():
         self.direcao.girar_a_esquerda()
 
     def calcular_velocidade(self):
-        print(f"{self.motor.valor()}")
+        return self.motor.valor()
 
     def calcular_direcao(self):
-        print(self.direcao.valor())
+        return self.direcao.valor()
