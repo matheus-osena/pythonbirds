@@ -73,7 +73,12 @@ class Fase():
 
         :return:
         """
-        return EM_ANDAMENTO
+        if self.possui_porco_ativo() == False:
+            return VITORIA
+        elif self.possui_passaro_ativo() == True:
+            return EM_ANDAMENTO
+        else:
+            return DERROTA
 
     def lancar(self, angulo, tempo):
         """
@@ -104,4 +109,19 @@ class Fase():
 
     def _transformar_em_ponto(self, ator):
         return Ponto(ator.x, ator.y, ator.caracter())
+
+    def possui_porco_ativo(self):
+        retorno = False
+        for porco in self._porcos:
+            if porco.status == ATIVO:
+                retorno = True
+        return retorno
+
+    def possui_passaro_ativo(self):
+        retorno = False
+        for passaros in self._passaros:
+            if passaros.status == ATIVO:
+                retorno = True
+        return retorno
+
 
